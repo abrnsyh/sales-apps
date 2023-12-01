@@ -22,11 +22,11 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "@chakra-ui/icons": "^2.1.1",
         "@chakra-ui/react": "^2.8.2",
         "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
         "@fontsource/poppins": "^5.0.8",
-        "framer-motion": "^10.16.5"
+        "framer-motion": "^10.16.5",
+        "lucide-react": "^0.294.0"
     }
 }
