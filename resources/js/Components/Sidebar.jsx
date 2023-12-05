@@ -1,4 +1,22 @@
-import { Box, Button, Flex, Image, Text } from '@chakra-ui/react';
+import { Box, Flex, Image } from '@chakra-ui/react';
+import SidebarMenu from './SidebarMenu';
+import {
+  KanbanSquare,
+  LayoutDashboard,
+  Newspaper,
+  Percent,
+  Settings,
+  Wallet,
+} from 'lucide-react';
+
+const menu = [
+  { title: 'Dashboard', icon: <LayoutDashboard size="24px" />, href: '/' },
+  { title: 'Data Master', icon: <KanbanSquare size="24px" />, href: '/' },
+  { title: 'Kontrak', icon: <Newspaper size="24px" />, href: '/' },
+  { title: 'Promo', icon: <Percent size="24px" />, href: '/' },
+  { title: 'Pembayaran', icon: <Wallet size="24px" />, href: '/' },
+  { title: 'Konfigurasi', icon: <Settings size="24px" />, href: '/' },
+];
 
 export default function Sidebar() {
   return (
@@ -9,8 +27,8 @@ export default function Sidebar() {
       flexDir="column"
       alignItems="center"
       bg="#0B0B20"
-      gap="32px"
-      w={339}
+      gap="8px"
+      w="88px"
       h={'100vh'}
       _before={{
         content: `""`,
@@ -23,52 +41,22 @@ export default function Sidebar() {
         bottom: 0,
         left: 0,
         right: 0,
-        opacity: 0.2,
+        opacity: 0.7,
       }}
     >
-      <Box pos="relative" justifyContent="center" pt={'80px'}>
-        <Image
-          src="/logo.png"
-          px="2px"
-          py="10px"
-          bg="rgba(0,0,0,0.14)"
-          rounded="16px"
-        />
+      <Box position="relative" mt="60px">
+        <Image w="78px" src="/logo.png" alt="logo" />
       </Box>
-      <Flex flexDir="column" pos="relative" gap="16px" width={307}>
-        <Text fontSize={31} color="#066C98" fontWeight={700}>
-          Main Menu
-        </Text>
-        <Flex gap="6px" flexDir="column">
-          <Button
-            fontSize="18px"
-            fontWeight="400"
-            justifyContent="start"
-            px="16px"
-            py="8px"
-            width="100%"
-            bg="transparent"
-            color="#818184"
-            rounded="18px"
-            _hover={{ color: '#fff', bg: '#161632', fontWeight: '700' }}
-          >
-            Dashboard
-          </Button>
-          <Button
-            fontSize="18px"
-            fontWeight="400"
-            justifyContent="start"
-            px="16px"
-            py="8px"
-            width="100%"
-            bg="transparent"
-            color="#818184"
-            rounded="18px"
-            _hover={{ color: '#fff', bg: '#161632', fontWeight: '700' }}
-          >
-            Data Master
-          </Button>
-        </Flex>
+
+      <Flex flexDir="column" gap="16px" position="relative">
+        {menu.map((item, index) => (
+          <SidebarMenu
+            key={index}
+            title={item.title}
+            href={item.href}
+            icon={item.icon}
+          />
+        ))}
       </Flex>
     </Flex>
   );

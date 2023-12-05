@@ -29,7 +29,7 @@ const theme = extendTheme({
           fontSize: '16px',
         },
         h6: {
-          fontSize: '14px',
+          fontSize: '12px',
         },
       },
     },
